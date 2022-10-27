@@ -4,12 +4,12 @@
 
 
 ## Forward
-All of us have bad times, only few of us tackle with composure. We have been taught since early childhood, but those knowledge are stale and stinky and of little use. 
+<span style="font-size: 36px; font-weight: bold;">A</span>ll of us have bad times, only few of us tackle with composure. We have been taught since early childhood, but those knowledge are stale and stinky and of little use. 
 
 All of us have sad times, only few of us handle with decorum. We have made friends since early
 childhood, but those faces are withered and wrinkle and of little help. 
 
-Profitable knowledge must come from real life, true friends must come from wholehearted interchange.
+In a word, profitable knowledge must come from real life, true friends must come from wholehearted interchange.
 
 
 ## I. 
@@ -35,6 +35,7 @@ Man, however wise and nice, tends to be too confident in one's potency, but negl
 4. [React Redux Full Course for Beginners | Redux Toolkit Complete Tutorial](https://youtu.be/NqzdVN2tyvQ)
 5. [Node.js Full Course for Beginners | Complete All-in-One Tutorial | 7 Hours](https://youtu.be/f2EqECiTBL8)
 6. [JWT Authentication | Node JS and Express tutorials for Beginners](https://youtu.be/favjC6EKFgw)
+7. [Poe’s Complete Works](https://poemuseum.org/poes-complete-works/)
 
 
 ## EOF (2022/10/26)
