@@ -1,0 +1,124 @@
+### Get all users
+GET http://localhost:3500/users
+
+
+### Create a user 
+POST http://localhost:3500/users
+Content-Type: application/json
+
+{
+  "username": "Hank",
+  "password": "12345",
+  "roles": ["Employee", "Manager", "Admin"]
+}
+
+
+### Update a user
+PATCH http://localhost:3500/users
+Content-Type: application/json
+
+{
+    "id": "6350a2dfaccf1d950f44aad5",
+    "username": "Hank",
+    "roles": [
+      "Employee"
+    ],
+    "active": true,
+    "__v": 0
+  }
+
+
+### Delete a user 
+DELETE http://localhost:3500/users
+Content-Type: application/json
+
+{
+    "id": "634fc202a3560e787ac7e750",
+    "username": "Hank",
+    "roles": [
+      "Employee"
+    ],
+    "active": true,
+    "__v": 0
+  }
+
+########## ########## ########## ##########
+
+### Get all notes
+GET http://localhost:3500/notes
+
+
+### Create a note
+POST http://localhost:3500/notes
+Content-Type: application/json
+
+{
+  "user": "63510571345521c9030223a8",
+  "title": "Bread and Butter",
+  "text": "That's better..."
+}
+
+
+### Update a note
+PATCH http://localhost:3500/notes
+Content-Type: application/json
+
+{
+  "id": "6350af4ddd55e814c0ee57e9",
+  "user": "6350a866dd55e814c0ee57bf",
+  "title": "Waiting for Godot",
+  "text": "All those moments will be lost in time, like [coughs] tears in rain. Time to die.",
+  "completed": true
+}
+
+
+### Delete a note 
+DELETE http://localhost:3500/notes
+Content-Type: application/json
+
+{
+  "id": "6350af4ddd55e814c0ee57e9",
+  "user": "6350a866dd55e814c0ee57bf",
+  "title": "Balaam’s Donkey",
+  "text": "All those moments will be lost in time, like [coughs] tears in rain. Time to die.",
+  "completed": false
+}
+
+########## ########## ########## ##########
+
+### Login 
+POST http://localhost:3500/auth
+Content-Type: application/json
+
+{
+  "username": "Hank",
+  "password": "12345"
+}
+
+
+### Refresh
+GET http://localhost:3500/auth/refresh
+Content-Type: application/json
+
+
+### Logout
+POST http://localhost:3500/auth/logout
+Content-Type: application/json
+
+
+### Get all notes
+GET http://localhost:3500/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkhhbmsiLCJyb2xlcyI6WyJFbXBsb3llZSJdfSwiaWF0IjoxNjY2NzYxNDkxLCJleHAiOjE2NjY3NjE1MjF9.mivFrEHI_QOqr6K0Trt43kdREdWvxDDhsV-gd97xCK8
+
+
+### Get all users
+GET http://localhost:3500/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IkhhbmsiLCJyb2xlcyI6WyJFbXBsb3llZSJdfSwiaWF0IjoxNjY2NzYxNDkxLCJleHAiOjE2NjY3NjE1MjF9.mivFrEHI_QOqr6K0Trt43kdREdWvxDDhsV-gd97xCK8
+
+
+# 
+# REST Client for Visual Studio Code
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+#
