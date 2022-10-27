@@ -1,8 +1,7 @@
 # "To be a programmer is not easy, <br />to be a full stack programmer is uneasy."
 
-[DECEIVE, INVEIGLE, OBFUSCATE](https://www.reddit.com/r/XFiles/comments/e8x2ba/deceive_inveigle_obfuscate/)
-
 [![alt DECEIVE, INVEIGLE, OBFUSCATE](img/DECEIVE_INVEIGLE_OBFUSCATE.jpg)](https://www.reddit.com/r/XFiles/comments/e8x2ba/deceive_inveigle_obfuscate/)
+
 
 ## Forward
 All of us have bad times, only few of us tackle with composure. We have been taught since early childhood, but those knowledge are stale and stinky and of little use. 
@@ -12,16 +11,22 @@ childhood, but those faces are withered and wrinkle and of little help.
 
 Profitable knowledge must come from real life, true friends must come from wholehearted interchange.
 
+
 ## I. 
+
 
 ## II. 
 
+
 ## III. 
+
 
 ## IV. Summary 
 Things get started small and tidy, but mess up unconceivably fast. A formidable monster of monolith ends up, usually.
 
+
 Man, however wise and nice, tends to be too confident in one's potency, but neglect obstacles lay ahead. 
+
 
 ## V. Reference
 1. [MERN Stack Full Tutorial & Project | Complete All-in-One Course | 8 Hours](https://youtu.be/CvCiNeLnZ00)
