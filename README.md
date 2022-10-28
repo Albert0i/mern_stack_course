@@ -12,31 +12,27 @@ childhood, but those faces are withered and wrinkle and of little help.
 In a word, profitable knowledge must come from real life, true friends must come from wholehearted interchange.
 
 
-## I. 
+## I. Backend
 
 
-## II. 
+## II. Frontend
 
 
-## III. 
-
-
-## IV. Summary 
+## III. Summary 
 Things get started small and tidy, but mess up unconceivably fast. A formidable monster of monolith ends up, usually.
-
 
 Man, however wise and nice, tends to be too confident in one's potency, but neglect obstacles lay ahead. 
 
 
-## V. Reference
+## IV. Reference
 1. [MERN Stack Full Tutorial & Project | Complete All-in-One Course | 8 Hours](https://youtu.be/CvCiNeLnZ00)
 2. [React JS Full Course for Beginners | Complete All-in-One Tutorial | 9 Hours](https://youtu.be/RVFAyFWO4go)
 3. [React Router v6 in 20 Minutes | RRv6 Upgrade & Refactor Tutorial](https://youtu.be/XBRLVRjZ3CQ)
 4. [React Redux Full Course for Beginners | Redux Toolkit Complete Tutorial](https://youtu.be/NqzdVN2tyvQ)
 5. [Node.js Full Course for Beginners | Complete All-in-One Tutorial | 7 Hours](https://youtu.be/f2EqECiTBL8)
 6. [JWT Authentication | Node JS and Express tutorials for Beginners](https://youtu.be/favjC6EKFgw)
-7. [Poe’s Complete Works](https://poemuseum.org/poes-complete-works/)
+7. [The Narrative of Arthur Gordon Pym](https://www.eapoe.org/works/editions/pymbc.htm)
 
 
-## EOF (2022/10/26)
+## EOF (2022/10/28)
 
