@@ -9,8 +9,6 @@
 All of us have sad times, only few of us handle with decorum. We have made friends since early
 childhood, but those faces are withered and wrinkle and of little help. 
 
-In a word, profitable knowledge must come from real life, true friends must come from wholehearted interchange.
-
 
 ## I. Backend
 
