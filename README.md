@@ -9,6 +9,11 @@
 All of us have sad times, only few of us handle with decorum. We have made friends since early
 childhood, but those faces are withered and wrinkle and of little help. 
 
+Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern-stack). 
+Our development starts on backend, once it's workable, we proceed to frontend. And then to the backend 
+for authentication, then back to the frontend again. To put it simple, we jump between backend and frontend until 
+finished. 
+
 
 ## I. Backend
 
