@@ -3,16 +3,12 @@
 [![alt DECEIVE, INVEIGLE, OBFUSCATE](img/DECEIVE_INVEIGLE_OBFUSCATE.jpg)](https://www.reddit.com/r/XFiles/comments/e8x2ba/deceive_inveigle_obfuscate/)
 
 
-## Forward
+## Prologue
 <span style="font-size: 36px; font-weight: bold;">A</span>ll of us have bad times, only few of us tackle with composure. We have been taught since early childhood, but those knowledge are stale and stinky and of little use. 
 
-All of us have sad times, only few of us handle with decorum. We have made friends since early
-childhood, but those faces are withered and wrinkle and of little help. 
+All of us have sad times, only few of us handle with decorum. We have made friends since early childhood, but those faces are withered and wrinkle and of little help. 
 
-Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern-stack). 
-Our development starts on backend, once it's workable, we proceed to frontend. And then to the backend 
-for authentication, then back to the frontend again. To put it simple, we jump between backend and frontend until 
-finished. 
+Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern-stack). Our development starts on backend first, once it's working, we delved into frontend. And then to backend for authentication, then back to frontend again. Put it simple, we loop between backend and frontend until finished. 
 
 
 ## I. Backend
@@ -37,5 +33,10 @@ Man, however wise and nice, tends to be too confident in one's potency, but negl
 7. [The Narrative of Arthur Gordon Pym](https://www.eapoe.org/works/editions/pymbc.htm)
 
 
-## EOF (2022/10/28)
+## Epilogue 
+> March 22. <br />The darkness had materially increased, relieved only by the glare of the water thrown back from the white curtain before us. Many gigantic and pallidly white birds flew continuously now from beyond the veil, and their scream was the eternal Tekeli-li! as they retreated from our vision. Hereupon Nu-Nu stirred in the bottom of the boat; but, upon touching him, we found his spirit departed. And now we rushed into the embraces of the cataract, where a chasm threw itself open to receive us. But there arose in our pathway a shrouded human figure, very far larger in its proportions than any dweller among men. And the hue of the skin of the figure was of the perfect whiteness of the snow.
 
+[![alt Pym Shrouded Figure](img/Pym-shroudedfigure.jpg)](https://en.wikipedia.org/wiki/The_Narrative_of_Arthur_Gordon_Pym_of_Nantucket)
+
+
+## EOF (2022/11/04)

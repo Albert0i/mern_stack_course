@@ -31,13 +31,13 @@ const login = asyncHandler(async (req, res) => {
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_IN + 's'}
+        { expiresIn: '15m' }    // process.env.ACCESS_TOKEN_EXPIRE_IN + 's'
     )
 
     const refreshToken = jwt.sign(
         { "username": foundUser.username },
         process.env.REFRESH_TOKEN_SECRET,
-        { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_IN + 'h' }
+        { expiresIn: '7d' }    // process.env.REFRESH_TOKEN_EXPIRE_IN + 'h'
     )
 
     // Create secure cookie with refresh token 
@@ -46,7 +46,8 @@ const login = asyncHandler(async (req, res) => {
         secure: process.env.NODE_ENV==='production', //https 
                        //set to 'false' for testing in dev; 'true' in prod environment
         sameSite: 'None', //cross-site cookie 
-        maxAge: process.env.REFRESH_TOKEN_EXPIRE_IN * 60 * 60 * 1000 //cookie expiry: set to match refreshToken
+        maxAge: 7 * 24 * 60 * 60 * 1000 // process.env.REFRESH_TOKEN_EXPIRE_IN * 60 * 60 * 1000 
+                                        //cookie expiry: set to match refreshToken
     })
 
     // Send accessToken containing username and roles 
@@ -81,7 +82,7 @@ const refresh = (req, res) => {
                     }
                 },
                 process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_IN + 's' }
+                { expiresIn: '15m' } // process.env.ACCESS_TOKEN_EXPIRE_IN + 's'
             )
 
             res.json({ accessToken })
