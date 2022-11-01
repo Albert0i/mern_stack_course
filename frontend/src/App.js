@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Public from './components/Public'
-import Login from './features/auth/Login'
+import Login from './features/auth/Login';
 import DashLayout from './components/DashLayout'
 import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
@@ -12,23 +12,31 @@ import EditNote from './features/notes/EditNote'
 import NewNote from './features/notes/NewNote'
 import Prefetch from './features/auth/Prefetch'
 import PersistLogin from './features/auth/PersistLogin'
+import RequireAuth from './features/auth/RequireAuth'
+import { ROLES } from './config/roles'
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />} >
+      <Route path="/" element={<Layout />}>
+        {/* public routes */}
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
-        
+
+        {/* Protected Routes */}
         <Route element={<PersistLogin />}>
-          <Route element={<Prefetch />}>
-            <Route path="dash" element={<DashLayout />}>
+          <Route element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}>
+            <Route element={<Prefetch />}>
+              <Route path="dash" element={<DashLayout />}>
+
                 <Route index element={<Welcome />} />
 
-                <Route path="users">
-                  <Route index element={<UsersList />} />
-                  <Route path=":id" element={<EditUser />} />
-                  <Route path="new" element={<NewUserForm />} />
+                <Route element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}>
+                  <Route path="users">
+                    <Route index element={<UsersList />} />
+                    <Route path=":id" element={<EditUser />} />
+                    <Route path="new" element={<NewUserForm />} />
+                  </Route>
                 </Route>
 
                 <Route path="notes">
@@ -36,29 +44,15 @@ function App() {
                   <Route path=":id" element={<EditNote />} />
                   <Route path="new" element={<NewNote />} />
                 </Route>
-                
+
               </Route>{/* End Dash */}
-            </Route>{/* End Prefetch */}
-          </Route>{/* End PersistLogin */}
+            </Route>
+          </Route>
+        </Route>{/* End Protected Routes */}
 
       </Route>
-    </Routes>
+    </Routes >
   );
 }
 
 export default App;
-
-/*
-    Things get started small and tidy, 
-    mess up unconceivably fast, 
-    A formidable monolith ends up, usually.
-
-    Man, however wise and nice,
-    tends to be too confident in one's potency,
-    but neglect obstacles lay ahead. 
-
-    Words are vulgar and momentary, 
-    Scripts are celestial and perpetual. 
-
-    Coincidence, is what you had expected but did not. 
- */
