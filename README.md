@@ -10,7 +10,7 @@
 
 All of us have sad times, only few of us handle with decorum. We have made friends since early childhood, but those faces are withered and wrinkle and of little help. 
 
-Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern-stack). Our development starts on backend first, once it's working, we delved into frontend. And then to backend for authentication, then back to frontend again. Put it simple, we loop between backend and frontend until finished. 
+Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern-stack). Our development starts on backend first, once it's workable, we delve into frontend. And then to backend for authentication, then back to frontend again... To put it simple, we loop between backend and frontend until finished. 
 
 
 ## I. Backend
@@ -22,7 +22,7 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 ## III. Summary 
 Things get started small and tidy, but mess up unconceivably fast. A formidable monster of monolith ends up, usually.
 
-Man, however wise and nice, tends to be too confident in one's potency, but neglect obstacles lay ahead. 
+Man, however wise and nice, tends to be too confident in one's potency to neglect obstacles lay ahead. 
 
 
 ## IV. Reference
