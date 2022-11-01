@@ -1,5 +1,6 @@
 # "To be a programmer is not easy, <br />to be a full stack programmer is uneasy."
 
+<br /><br /><br />
 
 [![alt CHAPTER XXIII.](img/pymfig4.gif)](https://www.eapoe.org/works/tales/pymb23.htm)
 
@@ -36,6 +37,8 @@ Man, however wise and nice, tends to be too confident in one's potency, but negl
 
 ## Epilogue 
 > The darkness had materially increased, relieved only by the glare of the water thrown back from the white curtain before us. Many gigantic and pallidly white birds flew continuously now from beyond the veil, and their scream was the eternal Tekeli-li! as they retreated from our vision. Hereupon Nu-Nu stirred in the bottom of the boat; but, upon touching him, we found his spirit departed. And now we rushed into the embraces of the cataract, where a chasm threw itself open to receive us. But there arose in our pathway a shrouded human figure, very far larger in its proportions than any dweller among men. And the hue of the skin of the figure was of the perfect whiteness of the snow.
+
+<br />
 
 [![alt CHAPTER XXIV.](img/Pym-shroudedfigure.jpg)](https://www.eapoe.org/works/tales/pymb25.htm)
 
