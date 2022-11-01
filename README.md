@@ -14,10 +14,14 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 
 
 ## I. Backend
-
+```javascript
+. . . 
+```
 
 ## II. Frontend
-
+```javascript
+. . . 
+```
 
 ## III. Summary 
 Things get started small and tidy, but mess up unconceivably fast. A formidable monster of monolith ends up, usually.
