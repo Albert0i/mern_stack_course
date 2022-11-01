@@ -1,12 +1,11 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const asyncHandler = require('express-async-handler')
 
 // @desc Login
 // @route POST /auth
 // @access Public
-const login = asyncHandler(async (req, res) => {
+const login = async (req, res) => {
     const { username, password } = req.body
 
     if (!username || !password) {
@@ -31,28 +30,26 @@ const login = asyncHandler(async (req, res) => {
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: '15m' }    // process.env.ACCESS_TOKEN_EXPIRE_IN + 's'
+        { expiresIn: '15m' }
     )
 
     const refreshToken = jwt.sign(
         { "username": foundUser.username },
         process.env.REFRESH_TOKEN_SECRET,
-        { expiresIn: '7d' }    // process.env.REFRESH_TOKEN_EXPIRE_IN + 'h'
+        { expiresIn: '7d' }
     )
 
     // Create secure cookie with refresh token 
     res.cookie('jwt', refreshToken, {
         httpOnly: true, //accessible only by web server 
-        secure: process.env.NODE_ENV==='production', //https 
-                       //set to 'false' for testing in dev; 'true' in prod environment
+        secure: true, //https
         sameSite: 'None', //cross-site cookie 
-        maxAge: 7 * 24 * 60 * 60 * 1000 // process.env.REFRESH_TOKEN_EXPIRE_IN * 60 * 60 * 1000 
-                                        //cookie expiry: set to match refreshToken
+        maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match rT
     })
 
     // Send accessToken containing username and roles 
     res.json({ accessToken })
-})
+}
 
 // @desc Refresh
 // @route GET /auth/refresh
@@ -67,12 +64,12 @@ const refresh = (req, res) => {
     jwt.verify(
         refreshToken,
         process.env.REFRESH_TOKEN_SECRET,
-        asyncHandler(async (err, decoded) => {
+        async (err, decoded) => {
             if (err) return res.status(403).json({ message: 'Forbidden' })
 
             const foundUser = await User.findOne({ username: decoded.username }).exec()
 
-            if (!foundUser || !foundUser.active) return res.status(401).json({ message: 'Unauthorized' })
+            if (!foundUser) return res.status(401).json({ message: 'Unauthorized' })
 
             const accessToken = jwt.sign(
                 {
@@ -82,11 +79,11 @@ const refresh = (req, res) => {
                     }
                 },
                 process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: '15m' } // process.env.ACCESS_TOKEN_EXPIRE_IN + 's'
+                { expiresIn: '15m' }
             )
 
             res.json({ accessToken })
-        })
+        }
     )
 }
 
