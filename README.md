@@ -1,6 +1,6 @@
 # "To be a programmer is not easy, <br />to be a full stack programmer is uneasy."
 
-<br /><br /><br />
+<br /><br />
 
 [![alt CHAPTER XXIII.](img/pymfig4.gif)](https://www.eapoe.org/works/tales/pymb23.htm)
 
