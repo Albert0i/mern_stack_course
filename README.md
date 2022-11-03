@@ -14,19 +14,136 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 
 
 ## I. Backend
-```javascript
-. . . 
+```text
+|   package.json
+|   package-lock.json
+|   UserStories.md
+|   server.js
+|   requests.rest
++---public
+|   \---css
+|           style.css
++---routes
+|       root.js
+|       userRoutes.js
+|       noteRoutes.js
+|       authRoutes.js
++---views
+|       index.html
+|       404.html
++---logs
+|       reqLog.log
+|       errLog.log
+|       mongoErrLog.log
++---middleware
+|       errorHandler.js
+|       logger.js
+|       loginLimiter.js
+|       verifyJWT.js
++---img
+|       cors.JPG
++---config
+|       allowedOrigins.js
+|       corsOptions.js
+|       dbConn.js
++---models
+|       Note.js
+|       User.js
+\---controllers
+        usersController.js
+        notesController.js
+        authController.js
 ```
+
 
 ## II. Frontend
-```javascript
-. . . 
+```text
+|   package.json
+|   package-lock.json
+|   README.md
+|   UserStories.md                  
++---src
+|   |   index.css
+|   |   App.js
+|   |   index.js
+|   +---img
+|   |       background.jpg
+|   +---components
+|   |       Layout.js
+|   |       Public.js
+|   |       DashLayout.js
+|   |       DashHeader.js
+|   |       DashFooter.js
+|   +---features
+|   |   +---auth
+|   |   |       Login.js
+|   |   |       Welcome.js
+|   |   |       Prefetch.js
+|   |   |       authSlice.js
+|   |   |       authApiSlice.js
+|   |   |       PersistLogin.js
+|   |   |       RequireAuth.js
+|   |   +---notes
+|   |   |       NotesList.js
+|   |   |       Note.js
+|   |   |       notesApiSlice.js
+|   |   |       EditNote.js
+|   |   |       EditNoteForm.js
+|   |   |       NewNote.js
+|   |   |       NewNoteForm.js
+|   |   \---users
+|   |           UsersList.js
+|   |           User.js
+|   |           usersApiSlice.js
+|   |           EditUser.js
+|   |           EditUserForm.js
+|   |           NewUserForm.js
+|   +---app
+|   |   |   store.js
+|   |   \---api
+|   |           apiSlice.js
+|   +---config
+|   |       roles.js
+|   \---hooks
+|           usePersist.js
+|           useAuth.js
+|           useTitle.js
++---public
+|   |   index.html
+|   |   favicon.ico
+|   |   manifest.json
+|   |   logo192.png
+|   |   logo512.png
+|   |   robots.txt
+|   \---img
+|           background.jpg
+\---build
+    |   favicon.ico
+    |   manifest.json
+    |   logo192.png
+    |   logo512.png
+    |   robots.txt
+    |   index.html
+    |   asset-manifest.json
+    +---img
+    |       background.jpg
+    \---static
+        +---js
+        |       main.d254d50a.js
+        |       main.d254d50a.js.map
+        |       main.d254d50a.js.LICENSE.txt
+        +---css
+        |       main.afc46d7b.css.map
+        |       main.afc46d7b.css
+        \---media
+                background.aecd42b4c1d197657b25.jpg
 ```
 
-## III. Summary 
-Things get started small and tidy, but mess up unconceivably fast. A formidable monster of monolith ends up, usually.
 
-Man, however wise and nice, tends to be too confident in one's potency to neglect obstacles lay ahead. 
+## III. Summary 
+- Things get started small and tidy, but mess up unconceivably fast. A formidable monster of monolith ends up, usually.
+
+- Man, however wise and nice, tends to be too confident in one's potency to neglect obstacles lay ahead. 
 
 
 ## IV. Reference
