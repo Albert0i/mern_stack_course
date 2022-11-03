@@ -1,7 +1,8 @@
 const allowedOrigins = [
+    // For development environment 
     'http://localhost:3000',
-    'https://www.dandrepairshop.com',
-    'https://dandrepairshop.com'
+    // For production environment
+    'https://technotes.onrender.com'
 ]
 
 module.exports = allowedOrigins
