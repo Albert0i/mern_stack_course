@@ -17,7 +17,7 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 ### Step 1. 
 Backend API, per se, is a typical [express](https://www.npmjs.com/package/express) application, with models and routes of <code>User</code> and <code>Note</code> properly setted up. Full CRUD functions are implemented, everything was **UN**-protected yet. 
 
-![alt backend crud](img/backendCrud.jpg)
+![alt backend crud](img/backend-crud.jpg)
 
 
 ### Step 2. 
@@ -53,9 +53,9 @@ module.exports = verifyJWT
 
 Security is a must! <code>User</code> and <code>Note</code> routes are protected thence. 
 
-![alt users routes](img/users_routes.jpg)
+![alt users routes](img/users-routes.jpg)
 
-![alt backend auth](img/backend_auth.jpg)
+![alt backend auth](img/backend-auth.jpg)
 
 
 ### Source tree 
