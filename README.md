@@ -17,7 +17,7 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 ### Step 1. 
 Backend API, per se, is a typical [express](https://www.npmjs.com/package/express) application, with models and routes of <code>User</code> and <code>Note</code> properly setted up. Full CRUD functions are implemented, everything was **UN**-protected yet. 
 
-![alt backend crud](img\backendCrud.jpg)
+![alt backend crud](img/backendCrud.jpg)
 
 
 ### Step 2. 
@@ -53,9 +53,9 @@ module.exports = verifyJWT
 
 Security is a must! <code>User</code> and <code>Note</code> routes are protected thence. 
 
-![alt users routes](img\users_routes.jpg)
+![alt users routes](img/users_routes.jpg)
 
-![alt backend auth](img\backend_auth.jpg)
+![alt backend auth](img/backend_auth.jpg)
 
 
 ### Source tree 
@@ -122,21 +122,21 @@ Frontend is a [React](https://reactjs.org/) [single page application](https://de
 
 Previously, the author introduced [Axios API](https://axios-http.com/) to replace pure javascript [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API); [Easy Peasy](https://easy-peasy.vercel.app/) as a kind of [Store](https://learn.co/lessons/react-stores). This time [Dave](https://www.youtube.com/c/DaveGrayTeachesCode) introduced [Resux](https://redux.js.org/), which is over-powered in this application, i think. I am going to spend a couple of weeks to *catch up* Redux before I can give my opinion. 
 
-![alt home](img\home.jpg)
+![alt home](img/home.jpg)
 
-![alt users](img\users.jpg)
+![alt users](img/users.jpg)
 
-![alt notes](img\notes.jpg)
+![alt notes](img/notes.jpg)
 
 
 ### Step 2. 
 Going further ahead, <code>Login</code> screen is added, more packages are involved. 
 
-![alt login](img\login.jpg)
+![alt login](img/login.jpg)
 
 Many more complicated logic are needed in order to manage user states. I can't grasp without gasp, and for sure will repeat the video, i think. 
 
-![alt dash](img\dash.jpg)
+![alt dash](img/dash.jpg)
 
 
 ### Source tree 
