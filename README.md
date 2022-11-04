@@ -14,6 +14,51 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 
 
 ## I. Backend
+### Step 1. 
+Backend API, per se, is a typical [express](https://www.npmjs.com/package/express) application, with models and routes of <code>User</code> and <code>Note</code> properly setted up. Full CRUD functions are implemented, everything was **UN**-protected yet. 
+
+![alt backend crud](img\backend-crud.jpg)
+
+
+### Step 2. 
+User authentication was implemented by means of [jwt](https://jwt.io/), more packages are involved. The main logic resides in <code>authController</code> which enforces security and issues <code>access token</code> and <code>refresh token</code> accordingly. 
+
+middleware\verifyJWT.js
+```javascript
+const jwt = require('jsonwebtoken')
+
+const verifyJWT = (req, res, next) => {
+    const authHeader = req.headers.authorization || req.headers.Authorization
+
+    if (!authHeader?.startsWith('Bearer ')) {
+        return res.status(401).json({ message: 'Unauthorized' })
+    }
+
+    const token = authHeader.split(' ')[1]
+
+    jwt.verify(
+        token,
+        process.env.ACCESS_TOKEN_SECRET,
+        (err, decoded) => {
+            if (err) return res.status(403).json({ message: 'Forbidden' })
+            req.user = decoded.UserInfo.username
+            req.roles = decoded.UserInfo.roles
+            next()
+        }
+    )
+}
+
+module.exports = verifyJWT 
+```
+
+Security is a must! <code>User</code> and <code>Note</code> routes are protected thence. 
+
+![alt users routes](img\users-routes.jpg)
+
+![alt backend auth](img\backend-auth.jpg)
+
+
+### Source tree 
 ```text
 |   package.json
 |   package-lock.json
@@ -56,7 +101,45 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 ```
 
 
+### .env 
+```text 
+NODE_ENV=development
+
+DATABASE_URI=<your mongodb uri>
+
+# node 
+# require('crypto').randomBytes(64).toString('hex')
+ACCESS_TOKEN_SECRET=<your asscess token>
+
+
+REFRESH_TOKEN_SECRET=<your refresh token>
+```
+
+
 ## II. Frontend
+### Step 1. 
+Frontend is a [React](https://reactjs.org/) [single page application](https://developer.mozilla.org/en-US/docs/Glossary/SPA). As I am a *newbie*, although endeavour to learn by watching online videos, still find it difficult in understand the way it was. With the same step of backend, the frontend was implemented with full CRUD by calling the backend API. 
+
+Previously, the author introduced [Axios API](https://axios-http.com/) to replace pure javascript [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API); [Easy Peasy](https://easy-peasy.vercel.app/) as a kind of [Store](https://learn.co/lessons/react-stores). This time [Dave](https://www.youtube.com/c/DaveGrayTeachesCode) introduced [Resux](https://redux.js.org/), which is over-powered in this application, i think. I am going to spend a couple of weeks to *catch up* Redux before I can give my opinion. 
+
+![alt home](img\home.jpg)
+
+![alt users](img\users.jpg)
+
+![alt notes](img\notes.jpg)
+
+
+### Step 2. 
+Going further ahead, <code>Login</code> screen is added, more packages are involved. 
+
+![alt login](img\login.jpg)
+
+Many more complicated logic are needed in order to manage user states. I can't grasp without gasp, and for sure will repeat the video, i think. 
+
+![alt dash](img\dash.jpg)
+
+
+### Source tree 
 ```text
 |   package.json
 |   package-lock.json
