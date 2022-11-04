@@ -17,7 +17,7 @@ Life is compared to many stages, and so does [MERN](https://www.mongodb.com/mern
 ### Step 1. 
 Backend API, per se, is a typical [express](https://www.npmjs.com/package/express) application, with models and routes of <code>User</code> and <code>Note</code> properly setted up. Full CRUD functions are implemented, everything was **UN**-protected yet. 
 
-![alt backend crud](img\backend_crud.jpg)
+![alt backend crud](img\backendCrud.jpg)
 
 
 ### Step 2. 
