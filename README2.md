@@ -2,6 +2,12 @@
 
 
 ## Prologue
+<span style="font-size: 36px; font-weight: bold;">L</span>ast Friday, after hours and hours wandering in the dark alleys, my head was tumultuously flooding with remembrance and swelled badly. Wild and furious shriek resound violently in my ears, *tinnitus* grew stronger as i grew weaker. Faint and dizzy as i was, shoddy and shabby as i was, the idea of re-visiting an old friend have dawned upon me. My body urged me to lay down for a while but my brain refused to do so. On second thoughts, I decided to stay alone not because I was poverty-stricken, but because I didn't want my weary and almost devastated countenance to be seen. 
+
+I stumbled back to my lodging, and was so hungry and thirst, laying unconsciously on the couch and ask "what have i done?", "what should i do?"... Have you ever feel hungry form something? I meant those metaphysical desire you have ever tried or intended to pursuit, no matter failure and success ended up. 
+
+
+## I. Repertoire
 This [MERN](https://www.mongodb.com/mern-stack) project is made up of 13 tutorials that builds upon each other much like chapters of a book. 
 
 MERN is an acronym that use the first letter of four complementary technologies. **M** is for [MongoDB](https://www.mongodb.com/), **E** is for [ExpressJS](https://expressjs.com/), **R** is for [React](https://reactjs.org/) and **N** is for [NodeJS](https://nodejs.org/en/). So if MERN stack is full stack that leads us to ask what is full stack? and why is the MERN stack considered to be full stack? 
@@ -11,7 +17,7 @@ A full stack application means that it requires code that runs on the server and
 The back end for the MERN stack is a [REST](https://restfulapi.net/) API, a REST API also known as a restful API is an interface that two computer systems used to exchange information securely over the internet. The back end will receive requests from the front end, those requests can be classified as [CRUD](https://www.codecademy.com/article/what-is-crud) operations. CRUD is another four letter acronym like MERN, the letters of CRUD stands for create, read, update and delete. These terms also indicate which types of [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) will be used in the applicaiton, for example post relates to create, get relates to read, patch and put request relates to update, and delete has an exact match. 
 
 
-## I. Chapter 1~2: Structure of REST API server
+## II. Chapter 1~2: Structure of REST API server
 ```
 |   .gitignore
 |   UserStories.md
@@ -109,7 +115,7 @@ package.json
 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is important in public API and was nicely configured, [date-fns](https://www.npmjs.com/package/date-fns) and [uuid](https://www.npmjs.com/package/uuid) are used in logger, express.json and [cookie-parser](https://www.npmjs.com/package/cookie-parser) are added but not functioning yet.
 
 
-## II. Chapter 3~4: Structure of REST API server
+## II. Chapter 3~4: Models and Controllers
 
 ```
 ```
@@ -117,21 +123,26 @@ package.json
 ```javascript
 ```
 
-```xml
+dotenv
+.env
+```
+NODE_ENV=development
+
+DATABASE_URI=<your mongodb url>
+DATABASE_URI=mongodb+srv://<username>:<password>@cluster0.9elkk.mongodb.net/techNotesDB?retryWrites=true&w=majority
 ```
 
-## II. 
+mongoose 
+mongoose-sequence 
 
-## IV. Reference
+
+## III. 
+
+## XII. Reference
 1. [MERN Stack Full Tutorial & Project | Complete All-in-One Course | 8 Hours](https://youtu.be/CvCiNeLnZ00)
-2. [William Morris Quotes](https://www.laurasbeau.co.uk/william-morris-quotes-2/)
+12. [William Morris Quotes](https://www.laurasbeau.co.uk/william-morris-quotes-2/)
 
 
 ## Epilogue 
 
-<span style="font-size: 36px; font-weight: bold;">A</span>fter hours and hours of wandering in the dark city, odds and ends filled up my mind, I was thinking my head will explode at any moment, the idea of re-visiting an old friend dawned upon me. My ready-made coat was old and shabby, holes on both elbows, large patch was on the left knee of my trouses... on second thoughts, I perfer to stay alone because I don't want my pale and weary countenance be seen. 
-
-I walk back to my lodging, i was so hungry and thirst laying unconsciously on the couch and ask "what have i done?", "what shall i do?"
-
-Previously, I wrote a summary of MERN stack project. Now, I am going to write it down in more details. 
-
+## EOF (2023/01/20)
