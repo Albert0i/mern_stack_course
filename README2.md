@@ -164,9 +164,7 @@ Only JSON and XML data are present in Web API unlike MVC where return views, act
 ```
 
 ### Models 
-dotenv
-mongoose 
-mongoose-sequence 
+Packages [dotenv](https://www.npmjs.com/package/dotenv), [mongoose](https://www.npmjs.com/package/mongoose), [mongoose-sequence](https://www.npmjs.com/package/mongoose-sequence) are required. 
 
 models/User.js
 ```javascript
@@ -293,8 +291,13 @@ mongoose.connection.on('error', err => {
 ```
 
 ### Controllers 
-express-async-handler 
-bcrypt 
+Packages [express-async-handler](https://www.npmjs.com/package/express-async-handler) and [bcrypt](https://www.npmjs.com/package/bcrypt) are required. 
+
+We have setup the routing in server.js, then define routes/userRoutes.js and finally create controller/usersController.js with functions corresponding to each HTTP method defined in our route, which instead calls models/Users.js to do the actual work, which completes the MVC cycle. 
+
+```
+HTTP request → server.js → userRoutes.js → usersController.js → User.js →  MongoDB → json data
+```
 
 routes/userRoutes
 ```javascript
