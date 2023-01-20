@@ -450,8 +450,62 @@ module.exports = {
 ```
 
 
-## IV. 
+## IV. Chapter 5: React Client
+```
+|   .gitignore
+|   UserStories.md
+|   package-lock.json
+|   package.json
+|
++---public
+|   |   favicon.ico
+|   |   index.html
+|   |   manifest.json
+|   |   robots.txt
+|   |
+|   \---img
+|           background.jpg
+|
+\---src
+    |   App.js
+    |   index.css
+    |   index.js
+    |
+    +---components
+    |       DashFooter.js
+    |       DashHeader.js
+    |       DashLayout.js
+    |       Layout.js
+    |       Public.js
+    |
+    +---features
+    |   +---auth
+    |   |       Login.js
+    |   |       Welcome.js
+    |   |
+    |   +---notes
+    |   |       NotesList.js
+    |   |
+    |   \---users
+    |           UsersList.js
+    |
+    \---img
+            background.jpg    
+```
 
+## V. Chapter 6~7: React Redux
+
+## VI.
+
+## VII.
+
+## VIII.
+
+## IX.
+
+## X.
+
+## XI. 
 
 ## XII. Reference
 1. [MERN Stack Full Tutorial & Project | Complete All-in-One Course | 8 Hours](https://youtu.be/CvCiNeLnZ00)
