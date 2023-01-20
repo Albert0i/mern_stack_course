@@ -117,10 +117,149 @@ package.json
 
 ## II. Chapter 3~4: Models and Controllers
 
+Differences between Web API and MVC.
+| Model View Controller | Web API |
+| ----------- | ----------- |
+| MVC is used for developing Web applications that reply to both data and views | Web API is used for generating HTTP services that reply only as data. |
+
+Only JSON and XML data are present in Web API unlike MVC where return views, action results, etc are present. In a word, 
+
+**Web API = MVC - views + security enhancement**
 ```
+|   .gitignore
+|   UserStories.md
+|   package-lock.json
+|   package.json
+|   server.js
+|
++---config
+|       allowedOrigins.js
+|       corsOptions.js
+|       dbConn.js
+|
++---controllers
+|       notesController.js
+|       usersController.js
+|
++---middleware
+|       errorHandler.js
+|       logger.js
+|
++---models
+|       Note.js
+|       User.js
+|
+|
++---public
+|   \---css
+|           style.css
+|
++---routes
+|       noteRoutes.js
+|       root.js
+|       userRoutes.js
+|
+\---views
+        404.html
+        index.html
 ```
 
+User.js
 ```javascript
+const mongoose = require('mongoose')
+
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    roles: [{
+        type: String,
+        default: "Employee"
+    }],
+    active: {
+        type: Boolean,
+        default: true
+    }
+})
+
+module.exports = mongoose.model('User', userSchema)
+```
+
+Note.js
+```javascript
+const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose)
+
+const noteSchema = new mongoose.Schema(
+    {
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User'
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        text: {
+            type: String,
+            required: true
+        },
+        completed: {
+            type: Boolean,
+            default: false
+        }
+    },
+    {
+        timestamps: true
+    }
+)
+
+noteSchema.plugin(AutoIncrement, {
+    inc_field: 'ticket',
+    id: 'ticketNums',
+    start_seq: 500
+})
+
+module.exports = mongoose.model('Note', noteSchema)
+```
+
+server.js
+```javascript
+. . . 
+app.use('/', express.static(path.join(__dirname, 'public')))
+
+app.use('/', require('./routes/root'))
+app.use('/users', require('./routes/userRoutes'))
+app.use('/notes', require('./routes/noteRoutes'))
+
+app.all('*', (req, res) => {
+    res.status(404)
+    if (req.accepts('html')) {
+        res.sendFile(path.join(__dirname, 'views', '404.html'))
+    } else if (req.accepts('json')) {
+        res.json({ message: '404 Not Found' })
+    } else {
+        res.type('txt').send('404 Not Found')
+    }
+})
+
+app.use(errorHandler)
+
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB')
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+})
+
+mongoose.connection.on('error', err => {
+    console.log(err)
+    logEvents(`${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`, 'mongoErrLog.log')
+})
 ```
 
 dotenv
@@ -128,7 +267,6 @@ dotenv
 ```
 NODE_ENV=development
 
-DATABASE_URI=<your mongodb url>
 DATABASE_URI=mongodb+srv://<username>:<password>@cluster0.9elkk.mongodb.net/techNotesDB?retryWrites=true&w=majority
 ```
 
