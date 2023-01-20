@@ -164,7 +164,7 @@ Only JSON and XML data are present in Web API unlike MVC where return views, act
         index.html
 ```
 
-User.js
+models/User.js
 ```javascript
 const mongoose = require('mongoose')
 
@@ -190,7 +190,7 @@ const userSchema = new mongoose.Schema({
 module.exports = mongoose.model('User', userSchema)
 ```
 
-Note.js
+models/Note.js
 ```javascript
 const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose)
@@ -227,6 +227,21 @@ noteSchema.plugin(AutoIncrement, {
 })
 
 module.exports = mongoose.model('Note', noteSchema)
+```
+
+config/dbConn.js
+```javascript
+const mongoose = require('mongoose')
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.DATABASE_URI)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+module.exports = connectDB
 ```
 
 server.js
