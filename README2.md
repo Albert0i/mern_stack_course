@@ -4,7 +4,7 @@
 ## Prologue
 <span style="font-size: 36px; font-weight: bold;">L</span>ast Friday, after hours and hours wandering in the dark alleys, my head was tumultuously flooding with remembrance and swelled badly. Wild and furious shriek resound violently in my ears, *tinnitus* grew stronger as i grew weaker. Faint and dizzy as i was, shoddy and shabby as i was, the idea of re-visiting an old friend have dawned upon me. My body urged me to lay down for a while but my brain refused to do so. On second thoughts, I decided to stay alone not because I was poverty-stricken, but because I didn't want my weary and almost devastated countenance to be seen. 
 
-I stumbled back to my lodging, and was so hungry and thirst, laying unconsciously on the couch and ask "what have I done?", "what shall I do?"... Have you ever feel hungry form something? I meant those metaphysical desire you have ever tried or intended to pursuit, no matter failure and success ended up. Exactly at that moment, I realize what I should do...  
+I stumbled back to my lodging, and was so hungry and thirst, laying unconsciously on the couch and ask "what have I done?", "what shall I do?"... Have you ever feel hungry form something? I meant those metaphysical desire you have ever tried or intended to pursuit, no matter failure and success ended up. Exactly at that moment, I realize what should I do...  
 
 
 ## I. Repertoire
