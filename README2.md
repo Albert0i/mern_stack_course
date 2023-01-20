@@ -4,7 +4,7 @@
 ## Prologue
 <span style="font-size: 36px; font-weight: bold;">L</span>ast Friday, after hours and hours wandering in the dark alleys, my head was tumultuously flooding with remembrance and swelled badly. Wild and furious shriek resound violently in my ears, *tinnitus* grew stronger as i grew weaker. Faint and dizzy as i was, shoddy and shabby as i was, the idea of re-visiting an old friend have dawned upon me. My body urged me to lay down for a while but my brain refused to do so. On second thoughts, I decided to stay alone not because I was poverty-stricken, but because I didn't want my weary and almost devastated countenance to be seen. 
 
-I stumbled back to my lodging, and was so hungry and thirst, laying unconsciously on the couch and ask "what have i done?", "what should i do?"... Have you ever feel hungry form something? I meant those metaphysical desire you have ever tried or intended to pursuit, no matter failure and success ended up. 
+I stumbled back to my lodging, and was so hungry and thirst, laying unconsciously on the couch and ask "what have I done?", "what shall I do?"... Have you ever feel hungry form something? I meant those metaphysical desire you have ever tried or intended to pursuit, no matter failure and success ended up. Exactly at this moment, I realize what I should do...  
 
 
 ## I. Repertoire
@@ -115,8 +115,7 @@ package.json
 [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) is important in public API and was nicely configured, [date-fns](https://www.npmjs.com/package/date-fns) and [uuid](https://www.npmjs.com/package/uuid) are used in logger, express.json and [cookie-parser](https://www.npmjs.com/package/cookie-parser) are added but not functioning yet.
 
 
-## II. Chapter 3~4: Models and Controllers
-
+## III. Chapter 3~4: Models and Controllers
 Differences between Web API and MVC.
 | Model View Controller | Web API |
 | ----------- | ----------- |
@@ -125,6 +124,7 @@ Differences between Web API and MVC.
 Only JSON and XML data are present in Web API unlike MVC where return views, action results, etc are present. In a word, 
 
 **Web API = MVC - views + security enhancement**
+
 ```
 |   .gitignore
 |   UserStories.md
@@ -149,7 +149,6 @@ Only JSON and XML data are present in Web API unlike MVC where return views, act
 |       Note.js
 |       User.js
 |
-|
 +---public
 |   \---css
 |           style.css
@@ -163,6 +162,11 @@ Only JSON and XML data are present in Web API unlike MVC where return views, act
         404.html
         index.html
 ```
+
+### Models 
+dotenv
+mongoose 
+mongoose-sequence 
 
 models/User.js
 ```javascript
@@ -229,6 +233,13 @@ noteSchema.plugin(AutoIncrement, {
 module.exports = mongoose.model('Note', noteSchema)
 ```
 
+.env
+```
+NODE_ENV=development
+
+DATABASE_URI=mongodb+srv://<username>:<password>@cluster0.9elkk.mongodb.net/techNotesDB?retryWrites=true&w=majority
+```
+
 config/dbConn.js
 ```javascript
 const mongoose = require('mongoose')
@@ -246,6 +257,10 @@ module.exports = connectDB
 
 server.js
 ```javascript
+require('dotenv').config()
+. . . 
+console.log(process.env.NODE_ENV)
+connectDB()
 . . . 
 app.use('/', express.static(path.join(__dirname, 'public')))
 
@@ -277,19 +292,163 @@ mongoose.connection.on('error', err => {
 })
 ```
 
-dotenv
-.env
+### Controllers 
+express-async-handler 
+bcrypt 
+
+routes/userRoutes
+```javascript
+const express = require('express')
+const router = express.Router()
+const userController = require('../controllers/usersController')
+
+router.route('/')
+    .get(userController.getAllUsers)
+    .post(userController.createNewUser)
+    .patch(userController.updateUser)
+    .delete(userController.deleteUser)
+
+module.exports = router
 ```
-NODE_ENV=development
 
-DATABASE_URI=mongodb+srv://<username>:<password>@cluster0.9elkk.mongodb.net/techNotesDB?retryWrites=true&w=majority
+controllers/usersController.js 
+```javascript
+const User = require('../models/User')
+const Note = require('../models/Note')
+const bcrypt = require('bcrypt')
+
+// @desc Get all users
+// @route GET /users
+// @access Private
+const getAllUsers = async (req, res) => {
+    // Get all users from MongoDB
+    const users = await User.find().select('-password').lean()
+
+    // If no users 
+    if (!users?.length) {
+        return res.status(400).json({ message: 'No users found' })
+    }
+
+    res.json(users)
+}
+
+// @desc Create new user
+// @route POST /users
+// @access Private
+const createNewUser = async (req, res) => {
+    const { username, password, roles } = req.body
+
+    // Confirm data
+    if (!username || !password) {
+        return res.status(400).json({ message: 'All fields are required' })
+    }
+
+    // Check for duplicate username
+    const duplicate = await User.findOne({ username }).collation({ locale: 'en', strength: 2 }).lean().exec()
+
+    if (duplicate) {
+        return res.status(409).json({ message: 'Duplicate username' })
+    }
+
+    // Hash password 
+    const hashedPwd = await bcrypt.hash(password, 10) // salt rounds
+
+    const userObject = (!Array.isArray(roles) || !roles.length)
+        ? { username, "password": hashedPwd }
+        : { username, "password": hashedPwd, roles }
+
+    // Create and store new user 
+    const user = await User.create(userObject)
+
+    if (user) { //created 
+        res.status(201).json({ message: `New user ${username} created` })
+    } else {
+        res.status(400).json({ message: 'Invalid user data received' })
+    }
+}
+
+// @desc Update a user
+// @route PATCH /users
+// @access Private
+const updateUser = async (req, res) => {
+    const { id, username, roles, active, password } = req.body
+
+    // Confirm data 
+    if (!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean') {
+        return res.status(400).json({ message: 'All fields except password are required' })
+    }
+
+    // Does the user exist to update?
+    const user = await User.findById(id).exec()
+
+    if (!user) {
+        return res.status(400).json({ message: 'User not found' })
+    }
+
+    // Check for duplicate 
+    const duplicate = await User.findOne({ username }).collation({ locale: 'en', strength: 2 }).lean().exec()
+
+    // Allow updates to the original user 
+    if (duplicate && duplicate?._id.toString() !== id) {
+        return res.status(409).json({ message: 'Duplicate username' })
+    }
+
+    user.username = username
+    user.roles = roles
+    user.active = active
+
+    if (password) {
+        // Hash password 
+        user.password = await bcrypt.hash(password, 10) // salt rounds 
+    }
+
+    const updatedUser = await user.save()
+
+    res.json({ message: `${updatedUser.username} updated` })
+}
+
+// @desc Delete a user
+// @route DELETE /users
+// @access Private
+const deleteUser = async (req, res) => {
+    const { id } = req.body
+
+    // Confirm data
+    if (!id) {
+        return res.status(400).json({ message: 'User ID Required' })
+    }
+
+    // Does the user still have assigned notes?
+    const note = await Note.findOne({ user: id }).lean().exec()
+    if (note) {
+        return res.status(400).json({ message: 'User has assigned notes' })
+    }
+
+    // Does the user exist to delete?
+    const user = await User.findById(id).exec()
+
+    if (!user) {
+        return res.status(400).json({ message: 'User not found' })
+    }
+
+    const result = await user.deleteOne()
+
+    const reply = `Username ${result.username} with ID ${result._id} deleted`
+
+    res.json(reply)
+}
+
+module.exports = {
+    getAllUsers,
+    createNewUser,
+    updateUser,
+    deleteUser
+}
 ```
 
-mongoose 
-mongoose-sequence 
 
+## IV. 
 
-## III. 
 
 ## XII. Reference
 1. [MERN Stack Full Tutorial & Project | Complete All-in-One Course | 8 Hours](https://youtu.be/CvCiNeLnZ00)
