@@ -293,7 +293,7 @@ mongoose.connection.on('error', err => {
 ### Controllers 
 Packages [express-async-handler](https://www.npmjs.com/package/express-async-handler) and [bcrypt](https://www.npmjs.com/package/bcrypt) are required. 
 
-We have setup the routing in server.js, then define routes/userRoutes.js and finally create controller/usersController.js with functions corresponding to each HTTP method defined in our route, which instead calls models/Users.js to do the actual work, which completes the MVC cycle. 
+We have setup the routing in server.js, then define routes/userRoutes.js and finally create controller/usersController.js with functions corresponding to each HTTP method defined in our route, which instead calls models/Users.js to do the actual work, which completes the MVC request life cycle. 
 
 ```
 HTTP request → server.js → userRoutes.js → usersController.js → User.js →  MongoDB → json data
